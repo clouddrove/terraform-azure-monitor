@@ -66,7 +66,7 @@ module "log-analytics" {
 }
 
 module "ampls" {
-  source      = "../"
+  source      = "../../"
   name        = "app"
   environment = "test"
   label_order = ["name", "environment"]
@@ -100,14 +100,14 @@ data "azurerm_resource_group" "other_rg" {
 }
 
 module "ampls_diff_subs" {
-  source      = "../"
+  source      = "../../"
   name        = "app-1"
   environment = "test-1"
   label_order = ["name", "environment"]
 
   diff_sub_resource_group_name = data.azurerm_resource_group.other_rg.name
   diff_sub_location            = module.resource_group.resource_group_location
-  subnet_id                     = "/subscriptions/82d2a91c-9e70-40c9-8a97-3c1e353b2a80/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/vnet-test/subnets/default"
+  subnet_id                    = "/subscriptions/82d2a91c-9e70-40c9-8a97-3c1e353b2a80/resourceGroups/test/providers/Microsoft.Network/virtualNetworks/vnet-test/subnets/default"
 
   azurerm_monitor_private_link_scope_id = "/subscriptions/cbaecd6a-2e7c-4524-bef7-eb0d2fba93db/resourceGroups/app-ampls-test-resource-group/providers/microsoft.insights/privateLinkScopes/app-test-ampls"
   diff_sub                              = true
