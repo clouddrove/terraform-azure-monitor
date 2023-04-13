@@ -17,7 +17,7 @@ module "ampls_diff_subs" {
 
   diff_sub_resource_group_name = data.azurerm_resource_group.other_rg.name
   diff_sub_location            = module.resource_group.resource_group_location
-  subnet_id                     = "****"
+  subnet_id                    = "****"
 
   azurerm_monitor_private_link_scope_id = "**"
   diff_sub                              = true

@@ -79,26 +79,26 @@ variable "ampls_enabled" {
 }
 
 variable "linked_resource_ids" {
-  type = list(string)
-  default = [ "" ]
+  type        = list(string)
+  default     = [""]
   description = "(Required) The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created."
 }
 
 variable "subnet_id" {
-  type = string 
-  default = ""
+  type        = string
+  default     = ""
   description = "(Required) The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created."
 }
 
 variable "subscription_id" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "(Optional) Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used."
 }
 
 variable "private_dns_zones_names" {
-  type = list(string)
-  default = [""]
+  type        = list(string)
+  default     = [""]
   description = "The name of the private dns zones from which private dns will be created for AMPLS"
 }
 
@@ -109,8 +109,8 @@ variable "enable_private_endpoint" {
 }
 
 variable "azurerm_monitor_private_link_scope_id" {
-  type = string 
-  default = null 
+  type        = string
+  default     = null
   description = "The id  of the monitor private link scope from which private dns will be created for it"
 }
 
