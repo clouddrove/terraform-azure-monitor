@@ -66,7 +66,7 @@ module "log-analytics" {
 }
 
 module "ampls" {
-  source      = "../"
+  source      = "../../"
   name        = "app"
   environment = "test"
   label_order = ["name", "environment"]
@@ -100,7 +100,7 @@ data "azurerm_resource_group" "other_rg" {
 }
 
 module "ampls_diff_subs" {
-  source      = "../"
+  source      = "../../"
   name        = "app-1"
   environment = "test-1"
   label_order = ["name", "environment"]
