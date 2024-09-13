@@ -34,7 +34,6 @@ module "ampls_diff_subs" {
 
   azurerm_monitor_private_link_scope_id = "**"
   diff_sub                              = true
-  alias_sub                             = "***"
   private_dns_zones_names = [
     "privatelink.agentsvc.azure-automation.net",
     "privatelink.blob.core.windows.net",
