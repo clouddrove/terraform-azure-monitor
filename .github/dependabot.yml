@@ -10,14 +10,10 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_examples/AzMonitor-ActionGroups" # Location of package manifests
+    directory: "examples/complete" # Location of package manifests
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_examples/AzMonitor-ActivityLogAlerts" # Location of package manifests
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "_examples/AzMonitor-MetricAlerts" # Location of package manifests
+    directory: "examples/diff_sub" # Location of package manifests
     schedule:
       interval: "weekly"

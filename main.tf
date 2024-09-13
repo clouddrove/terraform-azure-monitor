@@ -12,6 +12,7 @@ module "labels" {
 }
 
 resource "azurerm_monitor_private_link_scope" "main" {
+  provider            = azurerm.main_sub
   count               = var.enabled && var.ampls_enabled && var.diff_sub == false ? 1 : 0
   name                = format("%s-ampls", module.labels.id)
   resource_group_name = var.resource_group_name
@@ -19,6 +20,7 @@ resource "azurerm_monitor_private_link_scope" "main" {
 }
 
 resource "azurerm_monitor_private_link_scoped_service" "main" {
+  provider            = azurerm.main_sub
   count               = var.enabled && var.ampls_enabled && var.enable_private_endpoint && var.diff_sub == false ? length(var.linked_resource_ids) : 0
   name                = format("%s-amplsservice-%s", module.labels.id, count.index + 1)
   resource_group_name = var.resource_group_name
@@ -32,12 +34,14 @@ locals {
 }
 
 resource "azurerm_private_dns_zone" "main" {
+  provider            = azurerm.main_sub
   count               = var.enable_private_endpoint && var.diff_sub == false ? length(var.private_dns_zones_names) : 0
   name                = element(var.private_dns_zones_names, count.index)
   resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_private_endpoint" "this" {
+  provider            = azurerm.main_sub
   count               = var.enable_private_endpoint && var.diff_sub == false ? 1 : 0
   name                = format("%s-ampls-pe", module.labels.id)
   location            = var.location
@@ -57,21 +61,15 @@ resource "azurerm_private_endpoint" "this" {
   }
 }
 
-provider "azurerm" {
-  alias = "peer"
-  features {}
-  subscription_id = var.alias_sub
-}
-
 resource "azurerm_private_dns_zone" "diff_sub" {
-  provider            = azurerm.peer
+  provider            = azurerm.dns_sub
   count               = var.enable_private_endpoint && var.diff_sub == true ? length(var.private_dns_zones_names) : 0
   name                = element(var.private_dns_zones_names, count.index)
   resource_group_name = var.diff_sub_resource_group_name
 }
 
 resource "azurerm_private_endpoint" "diff_sub_pe" {
-  provider            = azurerm.peer
+  provider            = azurerm.dns_sub
   count               = var.enable_private_endpoint && var.diff_sub ? 1 : 0
   name                = format("%s-ampls-pe", module.labels.id)
   location            = var.diff_sub_location
