@@ -9,4 +9,3 @@
           GITHUB: ${{ secrets.GITHUB }}
         with:
           tfcheck: 'example-complete / Check code format'
-    ...
