@@ -1,0 +1,11 @@
+---
+    name: Auto merge
+    on:
+      pull_request:
+    jobs:
+      auto-merge:
+        uses: clouddrove/github-shared-workflows/.github/workflows/auto_merge.yml@master
+        secrets:
+          GITHUB: ${{ secrets.GITHUB }}
+        with:
+          tfcheck: 'example-complete / Check code format'

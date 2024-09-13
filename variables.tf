@@ -31,24 +31,6 @@ variable "label_order" {
   description = "Label order, e.g. `name`,`application`."
 }
 
-variable "attributes" {
-  type        = list(any)
-  default     = []
-  description = "Additional attributes (e.g. `1`)."
-}
-
-variable "delimiter" {
-  type        = string
-  default     = "-"
-  description = "Delimiter to be used between `organization`, `environment`, `name` and `attributes`."
-}
-
-variable "tags" {
-  type        = map(any)
-  default     = {}
-  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)."
-}
-
 variable "managedby" {
   type        = string
   default     = "hello@clouddrove.com"
@@ -62,6 +44,7 @@ variable "enabled" {
 }
 
 variable "resource_group_name" {
+  type        = string
   default     = ""
   description = "A container that holds related resources for an Azure solution"
 }
@@ -90,12 +73,6 @@ variable "subnet_id" {
   description = "(Required) The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created."
 }
 
-variable "subscription_id" {
-  type        = string
-  default     = ""
-  description = "(Optional) Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used."
-}
-
 variable "private_dns_zones_names" {
   type        = list(string)
   default     = [""]
@@ -121,14 +98,8 @@ variable "diff_sub" {
   description = "Flag to tell whether dns zone is in different sub or not."
 }
 
-variable "alias_sub" {
-  # To be set when you are using a DNS zone from different subscription.
-  type        = string
-  default     = null
-  description = "Different subscription id for local provider(id of diff sub in which DNS zone is present)."
-}
-
 variable "diff_sub_resource_group_name" {
+  type        = string
   default     = ""
   description = "A container that holds related different subscription resources for an Azure solution"
 }
