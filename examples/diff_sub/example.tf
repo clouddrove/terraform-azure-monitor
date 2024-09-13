@@ -29,8 +29,8 @@ module "ampls_diff_subs" {
   label_order = ["name", "environment"]
 
   diff_sub_resource_group_name = data.azurerm_resource_group.other_rg.name
-  diff_sub_location            = module.resource_group.resource_group_location
-  subnet_id                    = "****"
+  diff_sub_location            = "Canada Central"
+  subnet_id                    = "/subscription/<--------subnet_id-------->"
 
   azurerm_monitor_private_link_scope_id = "**"
   diff_sub                              = true
