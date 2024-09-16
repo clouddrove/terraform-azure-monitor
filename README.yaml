@@ -36,25 +36,24 @@ include:
 # How to use this project
 # yamllint disable rule:line-length
 usage: |-
-  ### Simple Example
   Here is an example of how you can use this module in your inventory structure:
    
   ```hcl
-  module "key_vault" {
-    source                      = "clouddrove/monitor/azure"
-    name                        = "app"
-    environment                 = "test"
-    label_order                 = ["name", "environment"]
-    resource_group_name         = module.resource_group.resource_group_name
-    location                    = module.resource_group.resource_group_location
-    linked_resource_ids         = [module.log-analytics.workspace_id]
-    subnet_id                   = module.subnet.default_subnet_id[0]
-    private_dns_zones_names = [
-      "privatelink.agentsvc.azure-automation.net",
-      "privatelink.blob.core.windows.net",
-      "privatelink.monitor.azure.com",
-      "privatelink.ods.opinsights.azure.com",
-      "privatelink.oms.opinsights.azure.com",
-    ]
-   }
-    ```
+      module "key_vault" {
+      source                      = "clouddrove/monitor/azure"
+      name                        = "app"
+      environment                 = "test"
+      label_order                 = ["name", "environment"]
+      resource_group_name         = module.resource_group.resource_group_name
+      location                    = module.resource_group.resource_group_location
+      linked_resource_ids         = [module.log-analytics.workspace_id]
+      subnet_id                   = module.subnet.default_subnet_id[0]
+      private_dns_zones_names = [
+        "privatelink.agentsvc.azure-automation.net",
+        "privatelink.blob.core.windows.net",
+        "privatelink.monitor.azure.com",
+        "privatelink.ods.opinsights.azure.com",
+        "privatelink.oms.opinsights.azure.com",
+       ]
+      }
+  ```
