@@ -4,7 +4,6 @@
 # Run `make readme` to rebuild the `README.md`
 #
 
-
 # Name of this project
 name: Terraform AZURE Monitor
 
@@ -16,9 +15,12 @@ github_repo: clouddrove/terraform-azure-monitor
 
 # Badges to display
 badges:
-  - name: "Terraform"
-    image: "https://img.shields.io/badge/Terraform-v1.1.7-green"
-    url: "https://www.terraform.io"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/clouddrove/terraform-azure-monitor.svg"
+    url: "https://github.com/clouddrove/terraform-azure-monitor/releases/latest"
+  - name: "tfsec"
+    image: "https://github.com/clouddrove/terraform-azure-monitor/actions/workflows/tfsec.yml/badge.svg"
+    url: "https://github.com/clouddrove/terraform-azure-monitor/actions/workflows/tfsec.yml"
   - name: "Licence"
     image: "https://img.shields.io/badge/License-APACHE-blue.svg"
     url: "LICENSE.md"
