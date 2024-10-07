@@ -37,7 +37,7 @@ include:
 # yamllint disable rule:line-length
 usage: |-
   Here is an example of how you can use this module in your inventory structure:
-   
+
   ```hcl
       module "key_vault" {
       source                      = "clouddrove/monitor/azure"
